@@ -7,7 +7,8 @@ class BlocListener<T extends BaseBloc> extends StatefulWidget {
   final Widget? child;
   final Function(BaseEvent event)? listener;
 
-  const BlocListener({super.key,
+  const BlocListener({
+    super.key,
     @required this.child,
     @required this.listener,
   });
@@ -21,18 +22,25 @@ class _BlocListenerState<T> extends State<BlocListener> {
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-    final bloc = Provider.of<T>(context) as BaseBloc;
-
+    var bloc = Provider.of<T>(context) as BaseBloc;
+    bloc.processEventStream.listen((event) {
+      widget.listener!(event);
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<BaseEvent>(
-      builder: (context, event, child) {
-        return Container(
-          child: widget.child,
-        );
-      },
+    return StreamProvider.value(
+      value: (Provider.of<T>(context) as BaseBloc).processEventStream,
+      initialData: null,
+      updateShouldNotify: (previous, current) => false,
+      child: Consumer<BaseEvent?>(
+        builder: (context, event, child) {
+          return Container(
+            child: widget.child,
+          );
+        },
+      ),
     );
   }
 }

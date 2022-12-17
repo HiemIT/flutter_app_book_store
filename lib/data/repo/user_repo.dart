@@ -16,8 +16,10 @@ class UserRepo {
     try {
       var response = await _userService.signIn(phone, password);
       var userData = UserData.fromJson(response.data['data']);
-      SPref.instance.set(SPrefCache.KEY_TOKEN, userData.token);
-      c.complete(userData);
+      if (userData != null) {
+        SPref.instance.set(SPrefCache.KEY_TOKEN, userData.token);
+        c.complete(userData);
+      }
     } on DioError {
       c.completeError('Đăng nhập thất bại');
     } catch (e) {

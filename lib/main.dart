@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_book_store/module/home/home_page.dart';
 import 'package:flutter_app_book_store/shared/app_color.dart';
 
 import 'module/signin/signin_page.dart';
 import 'module/signup/signup_page.dart';
+import 'module/splash/splash_page.dart';
 
 void main() => runApp(const MyApp());
 
@@ -19,9 +21,9 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: <String, WidgetBuilder>{
-        // '/': (context) => SplashPage(),
-        // '/home': (context) => HomePage(),
-        '/': (context) => const SignInPage(),
+        '/': (context) => const SplashPage(),
+        '/home': (context) => const HomePage(),
+        '/sign-in': (context) => const SignInPage(),
         '/sign-up': (context) => const SignUpPage(),
         // '/checkout': (context) => CheckoutPage(),
       },

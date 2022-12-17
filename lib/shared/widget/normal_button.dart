@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_book_store/shared/style/btn_style.dart';
 
-import '../app_color.dart';
-
 class NormalButton extends StatelessWidget {
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final String title;
 
-  NormalButton({required this.onPressed, required this.title});
+  const NormalButton({super.key, required this.onPressed, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -15,16 +13,14 @@ class NormalButton extends StatelessWidget {
       minWidth: 200,
       height: 45,
       child: ElevatedButton(
-        // disable button or enable button
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(AppColor.yellow),
-          shape: MaterialStateProperty.all(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(5),
-            ),
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.yellow,
+          disabledBackgroundColor: Colors.yellow[500],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(4.0),
           ),
         ),
-        onPressed: onPressed,
         child: Text(
           title,
           style: BtnStyle.normal(),
@@ -33,3 +29,10 @@ class NormalButton extends StatelessWidget {
     );
   }
 }
+
+// note
+/*
+* ProxyProvider là một widget Provider, nó sẽ cung cấp một giá trị mới cho các widget con của nó.
+* Nó sẽ được gọi mỗi khi một giá trị nào đó thay đổi.
+*
+* */

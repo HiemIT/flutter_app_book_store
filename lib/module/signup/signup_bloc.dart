@@ -7,7 +7,6 @@ import 'package:flutter_app_book_store/data/repo/user_repo.dart';
 import 'package:flutter_app_book_store/event/signup_even.dart';
 import 'package:flutter_app_book_store/shared/validation.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:rxdart/subjects.dart';
 
 class SignUpBloc extends BaseBloc with ChangeNotifier {
   final _displayNameSubject = BehaviorSubject<String>();
@@ -56,11 +55,16 @@ class SignUpBloc extends BaseBloc with ChangeNotifier {
   // export event to StreamController
   Stream<String> get displayNameStream =>
       _displayNameSubject.stream.transform(displayNameValidator);
+
   Sink<String> get displayNameSink => _displayNameSubject.sink;
+
   Stream<String> get passStream => _passSubject.stream.transform(passValidator);
+
   Sink<String> get passSink => _passSubject.sink;
+
   //
   Stream<bool> get btnStream => _btnSubject.stream;
+
   Sink<bool> get btnSink => _btnSubject.sink;
 
   validateForm() {

@@ -27,6 +27,7 @@ class PageContainer extends StatelessWidget {
       ],
       child: Scaffold(
           appBar: AppBar(
+            centerTitle: true,
             title: Text(
               title,
               style: TextStyle(color: AppColor.blue),
