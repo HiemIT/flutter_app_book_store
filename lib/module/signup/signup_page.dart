@@ -12,6 +12,7 @@ class SignUpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PageContainer(
+      isShowAppBar: true,
       title: "Sign",
       bloc: [],
       di: [

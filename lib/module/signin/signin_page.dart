@@ -25,6 +25,7 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return PageContainer(
+      isShowAppBar: false,
       di: [
         Provider.value(
           value: UserService(),

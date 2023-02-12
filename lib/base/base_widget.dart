@@ -4,15 +4,18 @@ import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
 class PageContainer extends StatelessWidget {
-  final String title;
+  final String? title;
   final Widget child;
-
+  final bool isShowAppBar;
   final List<SingleChildWidget> bloc;
   final List<SingleChildWidget> di;
+  final List<Widget>? actions;
 
   const PageContainer(
       {Key? key,
-      required this.title,
+      this.title,
+      this.isShowAppBar = false,
+      this.actions,
       required this.child,
       this.bloc = const [],
       this.di = const []})
@@ -26,13 +29,16 @@ class PageContainer extends StatelessWidget {
         ...bloc,
       ],
       child: Scaffold(
-          appBar: AppBar(
-            centerTitle: true,
-            title: Text(
-              title,
-              style: TextStyle(color: AppColor.blue),
-            ),
-          ),
+          appBar: isShowAppBar
+              ? AppBar(
+                  centerTitle: true,
+                  title: Text(
+                    title!,
+                    style: TextStyle(color: AppColor.blue),
+                  ),
+                  actions: actions,
+                )
+              : null,
           body: Container(
             child: child,
           )),

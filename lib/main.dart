@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_book_store/module/checkout/checkout_page.dart';
 import 'package:flutter_app_book_store/module/home/home_page.dart';
 import 'package:flutter_app_book_store/shared/app_color.dart';
 
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         '/home': (context) => const HomePage(),
         '/sign-in': (context) => const SignInPage(),
         '/sign-up': (context) => const SignUpPage(),
-        // '/checkout': (context) => CheckoutPage(),
+        '/checkout': (context) => const CheckOutPage(),
       },
     );
   }
