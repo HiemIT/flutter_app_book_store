@@ -40,7 +40,7 @@ App sử dụng api của code4func cung cấp được viết bằng golang, hi
 - Cài đặt mysql
 - clone repository
   ```
-    $ git clone backend https://github.com/HiemIT/backend_bookstore.git
+    $ git clone https://github.com/HiemIT/backend_bookstore.git
   ```
   - Chạy file main.go bằng cách vào folder cmd và chạy lệnh
   ```
@@ -48,7 +48,7 @@ App sử dụng api của code4func cung cấp được viết bằng golang, hi
   ```
   - clone project book app
   ```
-  $ git clone frontend https://github.com/HiemIT/flutter_app_book_store.git
+  $ git clone https://github.com/HiemIT/flutter_app_book_store.git
   ```
     - Chạy project bằng cách vào folder book_app và chạy lệnh
   ```
